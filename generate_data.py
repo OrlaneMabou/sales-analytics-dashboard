@@ -28,4 +28,4 @@ df["mois"] = df["date"].dt.to_period("M").astype(str)
 # Sauvegarde / Speichern
 os.makedirs("Data", exist_ok=True)
 df.to_csv("Data/sales_data.csv", index=False)
-print(f"✅ {N} lignes générées → Data/sales_data.csv")
+print(f" {N} lignes générées → Data/sales_data.csv")
