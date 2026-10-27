@@ -15,13 +15,13 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # ── 1. Chargement des données / Daten laden ───────────────────────────────
 df = pd.read_csv("Data/sales_data.csv", parse_dates=["date"])
-print(f"📦 {len(df)} lignes chargées")
+print(f" {len(df)} lignes chargées")
 
 # ── 2. KPIs globaux / Globale KPIs ───────────────────────────────────────
 total_ca    = df["chiffre_affaires"].sum()
 ca_moyen    = df["chiffre_affaires"].mean()
 total_units = df["quantite"].sum()
-print(f"\n📊 KPIs globaux:")
+print(f"\n KPIs globaux:")
 print(f"   Chiffre d'affaires total : {total_ca:,.2f} €")
 print(f"   CA moyen par transaction : {ca_moyen:,.2f} €")
 print(f"   Unités vendues           : {total_units:,}")
@@ -40,7 +40,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig("outputs/01_ca_mensuel.png", dpi=150)
 plt.close()
-print("✅ Graphique 1 sauvegardé")
+print(" Graphique 1 sauvegardé")
 
 # ── 4. Graphique 2 : CA par produit / Umsatz nach Produkt ───────────────
 ca_produit = df.groupby("produit")["chiffre_affaires"].sum().sort_values(ascending=False)
@@ -52,7 +52,7 @@ ax.set_ylabel("")
 plt.tight_layout()
 plt.savefig("outputs/02_ca_produit.png", dpi=150)
 plt.close()
-print("✅ Graphique 2 sauvegardé")
+print(" Graphique 2 sauvegardé")
 
 # ── 5. Graphique 3 : CA par région / Umsatz nach Region ─────────────────
 ca_region = df.groupby("region")["chiffre_affaires"].sum()
@@ -63,7 +63,7 @@ ax.set_title("Répartition du CA par région", fontsize=14, fontweight="bold")
 plt.tight_layout()
 plt.savefig("outputs/03_ca_region.png", dpi=150)
 plt.close()
-print("✅ Graphique 3 sauvegardé")
+print(" Graphique 3 sauvegardé")
 
 # ── 6. Régression linéaire / Lineare Regression ──────────────────────────
 df_ml = df.groupby("mois").agg(
@@ -80,7 +80,7 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 r2 = r2_score(y_test, y_pred)
-print(f"\n🤖 Modèle ML — R² = {r2:.2f}")
+print(f"\n Modèle ML — R² = {r2:.2f}")
 
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(y_test.values, y_pred, color="#2E5FA3", alpha=0.7)
@@ -91,5 +91,5 @@ ax.set_ylabel("CA prédit (€)")
 plt.tight_layout()
 plt.savefig("outputs/04_ml_prediction.png", dpi=150)
 plt.close()
-print("✅ Graphique 4 sauvegardé")
-print("\n🎉 Dashboard complet ! Résultats dans le dossier outputs/")
+print(" Graphique 4 sauvegardé")
+print("\n Dashboard complet ! Résultats dans le dossier outputs/")
