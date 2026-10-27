@@ -1,6 +1,8 @@
-# Sales Analytics Dashboard 📊
+# Sales Analytics Dashboard 
 
 Analyse de 1 000 données de ventes fictives avec visualisations et prévision ML.
+My most complete project so far. I built an end-to-end data analytics pipeline in Python: first generating 1,000 synthetic sales records with Pandas and NumPy, then running exploratory analysis and producing 4 visualizations with Matplotlib and Seaborn (monthly revenue trends, sales by product, regional breakdown, and an ML prediction chart). Finally, I trained a Linear Regression model with Scikit-learn to forecast revenue, achieving an R² score of 0.80 — meaning the model explains 80% of revenue variance. This project reflects my interest in combining data analysis with machine learning
+
 
 ## Technologien / Technologies
 - Python 3.10+
